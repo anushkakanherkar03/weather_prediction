@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NzZ8MHwxfGFsbHwxfHxjbG91ZHN8fHx8fHwxNjgyODg0NzEx&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
+        }
+
+        /* Overlay for contrast */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            z-index: 1;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            color: #2193b0;
+        }
+
+        /* Input Fields */
+        input[type="number"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="number"]:focus {
+            border-color: #2193b0;
+            box-shadow: 0 0 10px rgba(33,147,176,0.3);
+            outline: none;
+        }
+
+        /* Button */
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #2193b0, #6dd5ed);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Weather Prediction</h2>
+        <form method="POST">
+            <input type="number" step="0.1" name="temp" placeholder="Temperature (-30 to 45°C)" required>
+            <input type="number" step="0.1" name="humidity" placeholder="Humidity (0 to 100%)" required>
+            <input type="number" step="0.1" name="pressure" placeholder="Pressure (870 to 1085hPa)" required>
+            <input type="number" step="0.1" name="wind" placeholder="Wind Speed (0 to 50m/s)" required>
+            <button type="submit">Predict Weather</button>
+        </form>
+    </div>
+
+</body>
+</html>
